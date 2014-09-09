@@ -17,7 +17,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 	}
 	
 	public void create(Publisher publisher) {
-		String sql = "INSERT INTO publishers (name,email,phoneNumber) values (?,?,?) ";
+		String sql = "INSERT INTO publishers (name,email,phoneNumber) VALUES (?,?,?) ";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, publisher.getName());
