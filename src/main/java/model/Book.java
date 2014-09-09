@@ -16,6 +16,7 @@ public class Book {
 	private Genre genre;
 	private Publisher publiser;
 	private boolean available;
+	
 	public Long getId() {
 		return id;
 	}
