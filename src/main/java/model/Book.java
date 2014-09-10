@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Calendar;
+
 public class Book {
 	
 	public Book() {
@@ -12,10 +14,12 @@ public class Book {
 	private String isbn;
 	private double rating;
 	private String comment;
+	private Calendar launchDate;
+	private boolean available;
 	private Author author;
 	private Genre genre;
-	private Publisher publiser;
-	private boolean available;
+	private Publisher publisher;
+	
 	
 	public Long getId() {
 		return id;
@@ -73,27 +77,27 @@ public class Book {
 		this.genre = genre;
 	}
 	
-	public Publisher getPubliser() {
-		return publiser;
-	}
-	public void setPubliser(Publisher publiser) {
-		this.publiser = publiser;
-	}
 	
-	public boolean isAvailable() {
+	public boolean getAvailable() {
 		return available;
 	}
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", price=" + price
-				+ ", isbn=" + isbn + ", rating=" + rating + ", comment="
-				+ comment + ", author=" + author.getName() + ", genre=" + genre.getName()
-				+ ", publiser=" + publiser.getName() + ", available=" + available + "]";
+	
+	public Calendar getLaunchDate() {
+		return launchDate;
+	}
+	public void setLaunchDate(Calendar launchDate) {
+		this.launchDate = launchDate;
 	}
 	
 	
+	public Publisher getPublisher() {
+		return publisher;
+	}
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
 
 }

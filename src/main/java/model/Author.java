@@ -4,7 +4,7 @@ public class Author {
 	private Long id;
 	private String name;
 	private String email;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -25,5 +25,6 @@ public class Author {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 }
