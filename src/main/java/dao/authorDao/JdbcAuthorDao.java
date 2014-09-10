@@ -24,6 +24,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setString(2, author.getEmail());
 			stmt.execute();
 			stmt.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -45,6 +46,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			}
 			rs.close();
 			stmt.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -58,6 +60,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setLong(1, author.getId());
 			stmt.execute();
 			stmt.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -71,6 +74,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setLong(1, author.getId());
 			stmt.execute();
 			stmt.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -89,6 +93,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			}
 			rs.close();
 			stmt.close();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
