@@ -23,20 +23,20 @@ public class JdbcBookDao implements IBookDao {
 	
 	public void create(Book book) {
 		String sql = "INSERT INTO books "
-				+ "(name,price,isbn,rating,comment,launchDate,available,authorId,genreId,publisherId) "
+				+ "(name,price,isbn,comment,launchDate,available,authorId,genreId,publisherId) "
 				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, book.getName());
-			stmt.setDouble(2, book.getPrice());
-			stmt.setString(3, book.getIsbn());
-			stmt.setDouble(4, book.getRating());
-			stmt.setString(5, book.getComment());
-			stmt.setDate(6, new Date(Calendar.getInstance().getTimeInMillis()));
-			stmt.setBoolean(7, book.getAvailable());
-			stmt.setLong(8, book.getAuthor().getId());
-			stmt.setLong(9, book.getGenre().getId());
-			stmt.setLong(10, book.getPublisher().getId());
+			int i = 0;
+			stmt.setString(i++, book.getName());
+			stmt.setDouble(i++, book.getPrice());
+			stmt.setString(i++, book.getIsbn());
+			stmt.setString(i++, book.getComment());
+			stmt.setDate(i++, new Date(Calendar.getInstance().getTimeInMillis()));
+			stmt.setBoolean(i++, book.getAvailable());
+			stmt.setLong(i++, book.getAuthor().getId());
+			stmt.setLong(i++, book.getGenre().getId());
+			stmt.setLong(i++, book.getPublisher().getId());
 			stmt.execute();
 			stmt.close();
 			connection.close();
@@ -69,7 +69,6 @@ public class JdbcBookDao implements IBookDao {
 				book.setName(rs.getString("name"));
 				book.setPrice(rs.getDouble("price"));
 				book.setIsbn(rs.getString("isbn"));
-				book.setRating(rs.getDouble("rating"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
 				date.setTime(rs.getDate("launchDate"));
@@ -149,7 +148,6 @@ public class JdbcBookDao implements IBookDao {
 				book.setName(rs.getString("name"));
 				book.setPrice(rs.getDouble("price"));
 				book.setIsbn(rs.getString("isbn"));
-				book.setRating(rs.getDouble("rating"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
 				date.setTime(rs.getDate("launchDate"));

@@ -4,17 +4,14 @@ import java.util.Calendar;
 
 public class Book {
 	
-	public Book() {
-		this.rating = 0.0;
-	}
 	
 	private Long id;
 	private String name;
 	private double price;
 	private String isbn;
-	private double rating;
 	private String comment;
 	private Calendar launchDate;
+	private int quantity;
 	private boolean available;
 	private Author author;
 	private Genre genre;
@@ -47,13 +44,6 @@ public class Book {
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
-	}
-	
-	public double getRating() {
-		return rating;
-	}
-	public void setRating(double rating) {
-		this.rating = rating;
 	}
 	
 	public String getComment() {
@@ -98,6 +88,16 @@ public class Book {
 	}
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		if(quantity == 0) {
+			this.available = false;
+		}
+		this.quantity = quantity;
 	}
 
 }
