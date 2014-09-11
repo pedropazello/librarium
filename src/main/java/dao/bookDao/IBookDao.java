@@ -9,5 +9,5 @@ public interface IBookDao {
 	public List<Book> read();
 	public void update(Book book);
 	public void delete(Book book);
-	public Book search(Book book);
+	public Book findById(Book book);
 }

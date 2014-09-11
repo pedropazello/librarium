@@ -81,7 +81,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 
 	}
 
-	public Author search(Author author) {
+	public Author findById(Author author) {
 		String sql = "SELECT * FROM authors WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

@@ -85,7 +85,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 
 	}
 
-	public Publisher search(Publisher publisher) {
+	public Publisher findById(Publisher publisher) {
 		String sql = "SELECT * FROM publishers WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

@@ -8,6 +8,11 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 		
 		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}  
 			String address 	= "jdbc:mysql://localhost:3306/librarium2";
 			String login 	= "root";
 			String password = "root";

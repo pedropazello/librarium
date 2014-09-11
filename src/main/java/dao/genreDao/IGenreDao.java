@@ -8,5 +8,5 @@ public interface IGenreDao {
 	public List<Genre> read();
 	public void update(Genre genre);
 	public void delete(Genre genre);
-	public Genre search(Genre genre);
+	public Genre findById(Genre genre);
 }
