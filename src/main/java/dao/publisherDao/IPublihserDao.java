@@ -9,5 +9,5 @@ public interface IPublihserDao {
 	public List<Publisher> read();
 	public void update(Publisher publiser);
 	public void delete(Publisher publisher);
-	public Publisher search(Publisher publisher);
+	public Publisher findById(Publisher publisher);
 }

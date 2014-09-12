@@ -32,7 +32,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 	}
 
 	public List<Author> read() {
-		String sql = "SELECT * FROMT authors";
+		String sql = "SELECT * FROM authors";
 		List<Author> authors = new ArrayList<Author>();
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -54,10 +54,12 @@ public class JdbcAuthorDao implements IAuthorDao {
 	}
 
 	public void update(Author author) {
-		String sql = "UPDATE authors WHERE id=?";
+		String sql = "UPDATE authors SET name=?, email=? WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, author.getId());
+			stmt.setString(1, author.getName());
+			stmt.setString(2, author.getEmail());
+			stmt.setLong(3, author.getId());
 			stmt.execute();
 			stmt.close();
 			connection.close();
@@ -68,7 +70,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 	}
 
 	public void delete(Author author) {
-		String sql = "DELETE FROM auhtors WHERE id=?";
+		String sql = "DELETE FROM authors WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, author.getId());
@@ -81,7 +83,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 
 	}
 
-	public Author search(Author author) {
+	public Author findById(Author author) {
 		String sql = "SELECT * FROM authors WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

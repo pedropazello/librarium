@@ -78,7 +78,7 @@ public class JdbcGenreDao implements IGenreDao {
 		}
 	}
 
-	public Genre search(Genre genre) {
+	public Genre findById(Genre genre) {
 		String sql = "SELECT * FROM genres WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

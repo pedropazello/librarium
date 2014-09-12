@@ -3,3 +3,5 @@
 /.classpath
 /target
 /src/main/java/test
+/build/
+/WebContent

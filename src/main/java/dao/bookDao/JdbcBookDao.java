@@ -125,7 +125,7 @@ public class JdbcBookDao implements IBookDao {
 		}
 	}
 
-	public Book search(Book book) {
+	public Book findById(Book book) {
 		String sql = ""
 				+ "SELECT books.*,"
 				+ "authors.name AS author,"

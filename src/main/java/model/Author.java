@@ -1,8 +1,15 @@
 package model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Author {
 	private Long id;
+	
+	@NotEmpty
 	private String name;
+	
+	@NotEmpty @Email
 	private String email;
 
 	public Long getId() {
