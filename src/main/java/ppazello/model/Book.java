@@ -1,4 +1,4 @@
-package model;
+package ppazello.model;
 
 import java.util.Calendar;
 

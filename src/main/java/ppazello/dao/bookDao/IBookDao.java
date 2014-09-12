@@ -1,8 +1,8 @@
-package dao.bookDao;
+package ppazello.dao.bookDao;
 
 import java.util.List;
 
-import model.Book;
+import ppazello.model.Book;
 
 public interface IBookDao {
 	public void create(Book book);

@@ -1,4 +1,4 @@
-package model;
+package ppazello.model;
 
 public class Genre {
 	private Long id;

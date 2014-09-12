@@ -1,8 +1,8 @@
-package dao.publisherDao;
+package ppazello.dao.publisherDao;
 
 import java.util.List;
 
-import model.Publisher;
+import ppazello.model.Publisher;
 
 public interface IPublihserDao {
 	public void create(Publisher publisher);

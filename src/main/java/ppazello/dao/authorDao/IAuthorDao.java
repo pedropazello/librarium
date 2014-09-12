@@ -1,8 +1,8 @@
-package dao.authorDao;
+package ppazello.dao.authorDao;
 
 import java.util.List;
 
-import model.Author;
+import ppazello.model.Author;
 
 public interface IAuthorDao {
 	public void create(Author author);

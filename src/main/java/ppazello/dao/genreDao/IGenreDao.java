@@ -1,7 +1,8 @@
-package dao.genreDao;
+package ppazello.dao.genreDao;
 
 import java.util.List;
-import model.Genre;
+
+import ppazello.model.Genre;
 
 public interface IGenreDao {
 	public void create(Genre genre);

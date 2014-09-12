@@ -1,4 +1,4 @@
-package dao.authorDao;
+package ppazello.dao.authorDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,13 +7,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionFactory;
-import model.Author;
+import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import ppazello.model.Author;
+
+
+@Repository
 public class JdbcAuthorDao implements IAuthorDao {
-	private Connection connection;
-	public JdbcAuthorDao() {
-		this.connection = new ConnectionFactory().getConnection();
+	private  Connection connection;
+	
+	@Autowired
+	public JdbcAuthorDao(DataSource dataSource) {
+		try {
+			this.connection = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public void create(Author author) {
@@ -24,7 +36,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setString(2, author.getEmail());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +58,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -62,7 +74,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setLong(3, author.getId());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -76,7 +88,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.setLong(1, author.getId());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -95,7 +107,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

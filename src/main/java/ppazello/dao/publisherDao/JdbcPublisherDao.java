@@ -1,4 +1,4 @@
-package dao.publisherDao;
+package ppazello.dao.publisherDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,13 +7,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionFactory;
-import model.Publisher;
+import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import ppazello.model.Publisher;
+
+@Repository
 public class JdbcPublisherDao implements IPublihserDao {
 	protected Connection connection;
-	public JdbcPublisherDao() {
-		this.connection = new ConnectionFactory().getConnection();
+	
+	@Autowired
+	public JdbcPublisherDao(DataSource dataSource) {
+		try {
+			this.connection = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public void create(Publisher publisher) {

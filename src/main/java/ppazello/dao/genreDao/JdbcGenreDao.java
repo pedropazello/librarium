@@ -1,4 +1,4 @@
-package dao.genreDao;
+package ppazello.dao.genreDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,14 +7,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.ConnectionFactory;
-import model.Genre;
+import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import ppazello.model.Genre;
+
+@Repository
 public class JdbcGenreDao implements IGenreDao {
 	private Connection connection;
 	
-	public JdbcGenreDao() {
-		this.connection = new ConnectionFactory().getConnection();
+	@Autowired
+	public JdbcGenreDao(DataSource dataSource) {
+		try {
+			this.connection = dataSource.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void create(Genre genre) {
