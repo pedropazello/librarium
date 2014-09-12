@@ -16,7 +16,9 @@ import dao.authorDao.JdbcAuthorDao;
 public class AuthorController {
 	
 	@RequestMapping("/authors")
-	public String index() {
+	public String index(Model model) {
+		IAuthorDao dao = new JdbcAuthorDao();
+		model.addAttribute("authors", dao.read()) ;
 		return "authors/index";
 	}
 	
@@ -25,15 +27,23 @@ public class AuthorController {
 		return "authors/new";
 	}
 	
+	@RequestMapping("authors/show")
+	public String show(Author author, Model model) {
+		IAuthorDao dao = new JdbcAuthorDao();
+		model.addAttribute("author", dao.findById(author));
+		return "authors/show";
+	}
+	
 	@RequestMapping("/authors/create")
-	public String create(@Valid Author author, BindingResult result) {
+	public String create(@Valid Author author, BindingResult result, Model model) {
 		
 		if(result.hasFieldErrors()) {
 			return "authors/new";
 		}
 		JdbcAuthorDao dao = new JdbcAuthorDao();
 		dao.create(author);
-		return "authors/index";
+		model.addAttribute("msg", "Autor criado com sucesso!");
+		return "authors/new";
 	}
 	
 	@RequestMapping("/authors/edit")
@@ -41,6 +51,25 @@ public class AuthorController {
 		IAuthorDao dao = new JdbcAuthorDao();
 		model.addAttribute("author",dao.findById(author));
 		return "authors/edit";
+	}
+	
+	@RequestMapping("/authors/update")
+	public String update(@Valid Author author, BindingResult result,Model model) {
+		IAuthorDao dao = new JdbcAuthorDao();
+		if(result.hasFieldErrors()) {
+			model.addAttribute("author",dao.findById(author));
+			return "authors/edit";
+		}
+		dao.update(author);
+		model.addAttribute("msg", "Autor alterado com sucesso!");
+		return "authors/edit";
+	}
+	
+	@RequestMapping("/authors/destroy")
+	public String destroy(Author author) {
+		IAuthorDao dao = new JdbcAuthorDao();
+		dao.delete(author);
+		return "redirect:/authors";
 	}
 	
 }

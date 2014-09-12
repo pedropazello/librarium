@@ -9,13 +9,11 @@
 <title>Editar um autor</title>
 </head>
 <body>
-<h3>Alterar ${author.name}</h3>
-    <form action="#" method="post">
-       <label>Nome</label> 
-	   <input type="text" name="name" value="${author.name}" /> <br>
-	   <label>Email</label> 
-	   <input type="text" name="email" value="${author.email}" /> <br>
-       <input type="hidden" value="${author.id}">
+<jsp:include page="_menu.jsp"/> <br>
+<h3>Alterar ${author.name}</h3> <br>
+${msg}
+    <form action="update" method="post">
+       <jsp:include page="_form.jsp"/>
       <input type="submit" value="Alterar">
     </form>
     

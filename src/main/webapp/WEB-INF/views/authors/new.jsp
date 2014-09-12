@@ -8,7 +8,9 @@
 <title>Adicionar um autor</title>
 </head>
 <body>
+<jsp:include page="_menu.jsp"/> <br>
 <h3>Adicionar um novo autor</h3>
+${msg}
     <form action="create" method="post">
        <jsp:include page="_form.jsp"/>
       <input type="submit" value="Adicionar">
