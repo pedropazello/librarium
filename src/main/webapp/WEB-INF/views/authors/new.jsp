@@ -1,21 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<jsp:include page="_assets.jsp"/>
 <title>Adicionar um autor</title>
 </head>
 <body>
-<jsp:include page="_menu.jsp"/> <br>
-<h3>Adicionar um novo autor</h3>
-${msg}
-    <form action="create" method="post">
-       <jsp:include page="_form.jsp"/>
-      <input type="submit" value="Adicionar">
-    </form>
-    <form:errors path="author.name"/> <br>
-    <form:errors path="author.email"/>
+<div class="container">
+	<jsp:include page="_menu.jsp"/>
+	<div class="page-header"><h1>Cadastrar um novo autor</h1></div>
+	<div class="col-lg-3" >
+		<form action="create" method="post">
+			<jsp:include page="_form.jsp"/>
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
+			<p class="text-success" >${param.msg}</p>
+		</form>
+	</div>
+</div>
 </body>
 </html>

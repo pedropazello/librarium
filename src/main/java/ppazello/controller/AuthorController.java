@@ -28,27 +28,24 @@ public class AuthorController {
 	}
 	
 	@RequestMapping("/authors/new")
-	public String newAuthor() {
+	public String newAuthor(Model model) {
+		model.addAttribute("action", "cadastrar");
 		return "authors/new";
-	}
-	
-	@RequestMapping("authors/show")
-	public String show(Author author, Model model) {
-		model.addAttribute("author", dao.findById(author));
-		return "authors/show";
 	}
 	
 	@RequestMapping("/authors/create")
 	public String create(@Valid Author author, BindingResult result, Model model) {
 		
 		if(result.hasFieldErrors()) {
+			model.addAttribute("author", author);
 			return "authors/new";
 		}
 		dao.create(author);
-		model.addAttribute("msg", "Autor criado com sucesso!");
-		return "authors/new";
+		model.addAttribute("msg", "Autor cadastrado com sucesso!");
+		return "redirect:/authors/new";
 	}
 	
+
 	@RequestMapping("/authors/edit")
 	public String edit(Author author, Model model) {
 		model.addAttribute("author",dao.findById(author));
