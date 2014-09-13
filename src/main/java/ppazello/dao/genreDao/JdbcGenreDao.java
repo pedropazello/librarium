@@ -54,7 +54,7 @@ public class JdbcGenreDao implements IGenreDao {
 			}
 			stmt.close();
 			rs.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -69,7 +69,7 @@ public class JdbcGenreDao implements IGenreDao {
 			stmt.setLong(2, genre.getId());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -99,7 +99,7 @@ public class JdbcGenreDao implements IGenreDao {
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

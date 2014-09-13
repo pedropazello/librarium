@@ -28,22 +28,23 @@ public class JdbcPublisherDao implements IPublihserDao {
 	}
 	
 	public void create(Publisher publisher) {
-		String sql = "INSERT INTO publishers (name,email,phoneNumber) VALUES (?,?,?) ";
+		String sql = "INSERT INTO publishers (name,email,site,phoneNumber) VALUES (?,?,?,?) ";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, publisher.getName());
 			stmt.setString(2, publisher.getEmail());
-			stmt.setString(3, publisher.getPhoneNumber());
+			stmt.setString(3, publisher.getSite());
+			stmt.setString(4, publisher.getPhoneNumber());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public List<Publisher> read() {
-		String sql = "SELECT * FROM publihsers";
+		String sql = "SELECT * FROM publishers";
 		List<Publisher> publishers = new ArrayList<Publisher>();
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -53,12 +54,13 @@ public class JdbcPublisherDao implements IPublihserDao {
 				publisher.setId(rs.getLong("id"));
 				publisher.setName(rs.getString("name"));
 				publisher.setEmail(rs.getString("email"));
+				publisher.setSite(rs.getString("site"));
 				publisher.setPhoneNumber(rs.getString("phoneNumber"));
 				publishers.add(publisher);
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -66,16 +68,17 @@ public class JdbcPublisherDao implements IPublihserDao {
 	}
 
 	public void update(Publisher publisher) {
-		String sql = "UPDATE publishers SET name=?, email=?, phoneNumber=? WHERE id=?";
+		String sql = "UPDATE publishers SET name=?, email=?, site=?, phoneNumber=? WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, publisher.getName());
 			stmt.setString(2, publisher.getEmail());
-			stmt.setString(3, publisher.getPhoneNumber());
+			stmt.setString(3, publisher.getSite());
+			stmt.setString(4, publisher.getPhoneNumber());
 			stmt.setLong(4, publisher.getId());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -89,7 +92,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 			stmt.setLong(1, publisher.getId());
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -105,11 +108,12 @@ public class JdbcPublisherDao implements IPublihserDao {
 			while (rs.next()) {
 				publisher.setName(rs.getString("name"));
 				publisher.setEmail(rs.getString("email"));
+				publisher.setEmail(rs.getString("email"));
 				publisher.setPhoneNumber(rs.getString("phoneNumber"));
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

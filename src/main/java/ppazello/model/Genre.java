@@ -1,7 +1,10 @@
 package ppazello.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Genre {
 	private Long id;
+	@NotEmpty
 	private String name;
 	
 	public Long getId() {
