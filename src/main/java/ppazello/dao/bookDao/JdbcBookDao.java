@@ -39,7 +39,7 @@ public class JdbcBookDao implements IBookDao {
 				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			int i = 0;
+			int i = 1;
 			stmt.setString(i++, book.getName());
 			stmt.setDouble(i++, book.getPrice());
 			stmt.setString(i++, book.getIsbn());

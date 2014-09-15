@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="_assets.jsp"/>
+<jsp:include page="../global/_assets.jsp"/>
 <title>index</title>
 </head>
 <body role="document">
 	<div class="container">
 		<!-- Static navbar -->
 	    <jsp:include page="_menu.jsp"/>
-		<div class="page-header" ><h1>Generos</h1></div>
+		<div class="page-header" ><h1>Gêneros</h1></div>
 		<table class="table table-striped table-hover table-bordered">
 			<thead>
 				<tr>
@@ -33,7 +33,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<jsp:include page="_footer.jsp"/>
+		<jsp:include page="../global/_footer.jsp"/>
 	</div>
 </body>
 </html>

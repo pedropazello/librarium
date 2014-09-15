@@ -9,7 +9,7 @@ public class Author {
 	@NotEmpty
 	private String name;
 	
-	@NotEmpty @Email
+	@Email
 	private String email;
 
 	public Long getId() {

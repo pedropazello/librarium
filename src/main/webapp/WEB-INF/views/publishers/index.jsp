@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="_assets.jsp"/>
+<jsp:include page="../global/_assets.jsp"/>
 <title>index</title>
 </head>
 <body role="document">
@@ -20,7 +20,7 @@
 					<th>nome</th>
 					<th>email</th>
 					<th>site</th>
-					<th>Telefone</th>
+					<th>telefone</th>
 					<th>alterar</th>
 					<th>deletar</th>
 				</tr>
@@ -30,16 +30,22 @@
 					<tr>
 						<td>${publisher.id}</td>
 						<td>${publisher.name}</td>
-						<td>${publisher.email}</td>
-						<td>${publisher.site}</td>
-						<td>${publisher.phoneNumber}</td>
+						<td><a href="mailto:${publisher.email}">${publisher.email}</a>
+							<c:if test="${empty publisher.email}">email vazio</c:if>
+						</td>
+						<td><a href="${publisher.site}" target="_blank" >${publisher.site}</a>  
+							<c:if test="${empty publisher.site}">site vazio</c:if>
+						</td>
+						<td> ${publisher.phoneNumber}
+							<c:if test="${empty publisher.phoneNumber}">telefone vazio</c:if>
+						</td>
 						<td><a href="publishers/edit?id=${publisher.id}">alterar</a></td>
 						<td><a href="publishers/destroy?id=${publisher.id}">deletar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<jsp:include page="_footer.jsp"/>
+		<jsp:include page="../global/_footer.jsp"/>
 	</div>
 </body>
 </html>

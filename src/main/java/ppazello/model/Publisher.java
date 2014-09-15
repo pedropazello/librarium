@@ -2,16 +2,16 @@ package ppazello.model;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
 
 public class Publisher {
 	private Long id;
 	@NotEmpty
 	private String name;
-	@NotEmpty @Email
+	@Email
 	private String email;
-	@NotEmpty
+	@URL(protocol="http")
 	private String site;
-	@NotEmpty
 	private String phoneNumber;
 	
 	public Long getId() {
@@ -47,5 +47,4 @@ public class Publisher {
 	public void setSite(String site) {
 		this.site = site;
 	}
-
 }

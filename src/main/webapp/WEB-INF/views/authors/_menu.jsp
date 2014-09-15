@@ -7,14 +7,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/librarium2/authors">Exibir todos os autores</a></li>
         <li><a href="/librarium2/authors/new">Cadastrar um novo autor</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/librarium2/authors">Autores</a></li>
-            <li><a href="/librarium2/genres">Generos</a></li>
-            <li><a href="/librarium2/publishers">Editoras</a></li>
-          </ul>
-        </li>
+        <jsp:include page="../global/_dropdown.jsp"/>
       </ul>
     </div>
   </div>

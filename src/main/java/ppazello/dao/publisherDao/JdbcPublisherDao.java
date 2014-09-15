@@ -71,11 +71,12 @@ public class JdbcPublisherDao implements IPublihserDao {
 		String sql = "UPDATE publishers SET name=?, email=?, site=?, phoneNumber=? WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, publisher.getName());
-			stmt.setString(2, publisher.getEmail());
-			stmt.setString(3, publisher.getSite());
-			stmt.setString(4, publisher.getPhoneNumber());
-			stmt.setLong(4, publisher.getId());
+			int i = 1;
+			stmt.setString(i++, publisher.getName());
+			stmt.setString(i++, publisher.getEmail());
+			stmt.setString(i++, publisher.getSite());
+			stmt.setString(i++, publisher.getPhoneNumber());
+			stmt.setLong(i++, publisher.getId());
 			stmt.execute();
 			stmt.close();
 			
@@ -108,7 +109,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 			while (rs.next()) {
 				publisher.setName(rs.getString("name"));
 				publisher.setEmail(rs.getString("email"));
-				publisher.setEmail(rs.getString("email"));
+				publisher.setSite(rs.getString("site"));
 				publisher.setPhoneNumber(rs.getString("phoneNumber"));
 			}
 			rs.close();

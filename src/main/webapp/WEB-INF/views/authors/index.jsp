@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="_assets.jsp"/>
+<jsp:include page="../global/_assets.jsp"/>
 <title>index</title>
 </head>
 <body role="document">
@@ -28,14 +28,16 @@
 					<tr>
 						<td>${author.id}</td>
 						<td>${author.name}</td>
-						<td>${author.email}</td>
+						<td><a href="mailto:${author.email}">${author.email}</a>
+							<c:if test="${empty author.email}">email vazio</c:if>
+						</td>
 						<td><a href="authors/edit?id=${author.id}">alterar</a></td>
 						<td><a href="authors/destroy?id=${author.id}">deletar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<jsp:include page="_footer.jsp"/>
+		<jsp:include page="../global/_footer.jsp"/>
 	</div>
 </body>
 </html>

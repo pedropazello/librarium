@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<p class="text-danger" >* Campos obrigatórios</p>
 <div class="form-group">
-	<label>Nome</label>
+	<label>Nome*</label>
 	<input name="name" class="form-control" value="${publisher.name}" placeholder="Nome" />
 	<p class="text-danger"><form:errors path="publisher.name"/></p>
 </div>
@@ -11,6 +12,7 @@
 </div>
 <div class="form-group">
 	<label>Site</label>
+	<p class="text-primary" >No formato http://exemplo.com</p>
 	<input name="site" class="form-control"  value="${publisher.site}" placeholder="Site" />
 	<p class="text-danger"><form:errors path="publisher.site"/></p>
 </div>

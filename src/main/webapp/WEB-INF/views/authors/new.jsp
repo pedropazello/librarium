@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="_assets.jsp"/>
+<jsp:include page="../global/_assets.jsp"/>
 <title>Adicionar um autor</title>
 </head>
 <body>
@@ -18,6 +18,7 @@
 			<p class="text-success" >${param.msg}</p>
 		</form>
 	</div>
+	<jsp:include page="../global/_footer.jsp"/>
 </div>
 </body>
 </html>

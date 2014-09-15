@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<jsp:include page="_assets.jsp"/>
-<title>Adicionar um genero</title>
+<jsp:include page="../global/_assets.jsp"/>
+<title>Adicionar um gênero</title>
 </head>
 <body>
 <div class="container">
 	<jsp:include page="_menu.jsp"/>
-	<div class="page-header"><h1>Cadastrar um novo genero</h1></div>
+	<div class="page-header"><h1>Cadastrar um novo gênero</h1></div>
 	<div class="col-lg-3" >
 		<form action="create" method="post">
 			<jsp:include page="_form.jsp"/>
@@ -18,6 +18,7 @@
 			<p class="text-success" >${param.msg}</p>
 		</form>
 	</div>
+	<jsp:include page="../global/_footer.jsp"/>
 </div>
 </body>
 </html>
