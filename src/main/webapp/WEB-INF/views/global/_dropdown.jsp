@@ -4,5 +4,6 @@
       <li><a href="/librarium2/authors">Autores</a></li>
       <li><a href="/librarium2/genres">Gêneros</a></li>
       <li><a href="/librarium2/publishers">Editoras</a></li>
+       <li><a href="/librarium2/books">Livros</a></li>
     </ul>
 </li>

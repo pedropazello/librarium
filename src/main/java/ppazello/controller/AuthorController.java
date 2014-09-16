@@ -29,7 +29,6 @@ public class AuthorController {
 	
 	@RequestMapping("/authors/new")
 	public String newAuthor(Model model) {
-		model.addAttribute("action", "cadastrar");
 		return "authors/new";
 	}
 	

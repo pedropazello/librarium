@@ -11,8 +11,6 @@ public class Book {
 	private String isbn;
 	private String comment;
 	private Calendar launchDate;
-	private int quantity;
-	private boolean available;
 	private Author author;
 	private Genre genre;
 	private Publisher publisher;
@@ -67,14 +65,6 @@ public class Book {
 		this.genre = genre;
 	}
 	
-	
-	public boolean getAvailable() {
-		return available;
-	}
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
-	
 	public Calendar getLaunchDate() {
 		return launchDate;
 	}
@@ -88,16 +78,6 @@ public class Book {
 	}
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
-	}
-	
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		if(quantity == 0) {
-			this.available = false;
-		}
-		this.quantity = quantity;
 	}
 
 }
