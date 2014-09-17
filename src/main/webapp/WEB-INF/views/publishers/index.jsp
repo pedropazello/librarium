@@ -17,12 +17,11 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>nome</th>
-					<th>email</th>
-					<th>site</th>
-					<th>telefone</th>
-					<th>alterar</th>
-					<th>deletar</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Site</th>
+					<th>Telefone</th>
+					<th>Opção</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,9 +39,13 @@
 							<c:if test="${empty publisher.phoneNumber}">telefone vazio</c:if>
 						</td>
 						<td><a href="publishers/edit?id=${publisher.id}">alterar</a></td>
-						<td><a href="publishers/destroy?id=${publisher.id}">deletar</a></td>
 					</tr>
 				</c:forEach>
+				<c:if test="${empty publishers}">
+					<tr>
+						<td colspan="6" >Sem editoras cadastradas</td>
+					</tr>
+				</c:if>
 			</tbody>
 		</table>
 		<jsp:include page="../global/_footer.jsp"/>

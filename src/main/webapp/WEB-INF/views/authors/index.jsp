@@ -17,10 +17,9 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>nome</th>
-					<th>email</th>
-					<th>alterar</th>
-					<th>deletar</th>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Opção</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,9 +31,13 @@
 							<c:if test="${empty author.email}">email vazio</c:if>
 						</td>
 						<td><a href="authors/edit?id=${author.id}">alterar</a></td>
-						<td><a href="authors/destroy?id=${author.id}">deletar</a></td>
 					</tr>
 				</c:forEach>
+				<c:if test="${empty authors}">
+					<tr>
+						<td colspan="4">Sem autores cadastrados</td>
+					</tr>
+				</c:if>
 			</tbody>
 		</table>
 		<jsp:include page="../global/_footer.jsp"/>

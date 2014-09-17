@@ -61,11 +61,5 @@ public class PublisherController {
 		model.addAttribute("msg", "Editora alterada com sucesso!");
 		return "publishers/edit";
 	}
-	
-	@RequestMapping("/publishers/destroy")
-	public String destroy(Publisher publisher) {
-		dao.delete(publisher);
-		return "redirect:/publishers";
-	}
-	
+
 }

@@ -64,7 +64,7 @@ public class BookController {
 		model.addAttribute("authors", authorDao.read());
 		model.addAttribute("defaultGenre", genreDao.findById(book.getGenre()));
 		model.addAttribute("genres", genreDao.read());
-		model.addAttribute("DefaultPublisher", publisherDao.findById(book.getPublisher()));
+		model.addAttribute("defaultPublisher", publisherDao.findById(book.getPublisher()));
 		model.addAttribute("publishers", publisherDao.read());
 		return "books/edit";
 	}
@@ -78,12 +78,6 @@ public class BookController {
 		dao.update(book);
 		model.addAttribute("msg", "Livro alterado com sucesso!");
 		return "books/edit";
-	}
-	
-	@RequestMapping("/books/destroy")
-	public String destroy(Book book) {
-		dao.delete(book);
-		return "redirect:/books";
 	}
 	
 }

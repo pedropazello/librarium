@@ -18,14 +18,14 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>nome</th>
-					<th>preço</th>
+					<th>Nome</th>
+					<th>Preço</th>
 					<th>ISBN</th>
 					<th>Data de lançamento</th>
 					<th>Autor</th>
 					<th>Gênero</th>
 					<th>Editora</th>
-					<th>alterar</th>
+					<th>Opção</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,6 +46,11 @@
 						<td><a href="books/edit?id=${book.id}">alterar</a></td>
 					</tr>
 				</c:forEach>
+				<c:if test="${empty books}">
+					<tr>
+						<td colspan="9">Sem livros cadastrados</td>
+					</tr>
+				</c:if>
 			</tbody>
 		</table>
 		<jsp:include page="../global/_footer.jsp"/>

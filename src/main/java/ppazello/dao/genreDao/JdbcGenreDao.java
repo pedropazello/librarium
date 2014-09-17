@@ -76,18 +76,6 @@ public class JdbcGenreDao implements IGenreDao {
 
 	}
 
-	public void delete(Genre genre) {
-		String sql = "DELETE FROM genres WHERE id=?";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, genre.getId());
-			stmt.execute();
-			stmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public Genre findById(Genre genre) {
 		String sql = "SELECT * FROM genres WHERE id=?";
 		try {

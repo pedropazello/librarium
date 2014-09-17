@@ -11,8 +11,12 @@
 		</div>
 		<div class="form-group">
 			<label>Preço</label>
-			<input name="price" class="form-control"  
-			value="${book.price}" placeholder="Preço" />
+			<p class="text-primary" >Insira um valor no formato 99,99</p>
+			<div class="input-group">
+				<div class="input-group-addon">R$</div>
+				<input name="price" id="price" class="form-control"  
+				value="${book.price}" placeholder="Preço" />
+			</div>
 			<p class="text-danger"><form:errors path="book.price"/></p>
 		</div>
 		<div class="form-group">
@@ -23,7 +27,7 @@
 		
 		<div class="form-group">
 			<label>Data de lançamento</label>
-			<input name="lanchDate" class="form-control" 
+			<input name="launchDate" id="date" class="form-control" 
 			 value="<fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" />" 
 			 placeholder="Data de lançamento" />
 			<p class="text-danger"><form:errors path="book.launchDate"/></p>

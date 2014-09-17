@@ -17,9 +17,8 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>nome</th>
-					<th>alterar</th>
-					<th>deletar</th>
+					<th>Nome</th>
+					<th>Opção</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,9 +27,13 @@
 						<td>${genre.id}</td>
 						<td>${genre.name}</td>
 						<td><a href="genres/edit?id=${genre.id}">alterar</a></td>
-						<td><a href="genres/destroy?id=${genre.id}">deletar</a></td>
 					</tr>
 				</c:forEach>
+				<c:if test="${empty genres}">
+					<tr>
+						<td colspan="4">Sem gêneros cadastrados</td>
+					</tr>
+				</c:if>
 			</tbody>
 		</table>
 		<jsp:include page="../global/_footer.jsp"/>

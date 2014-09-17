@@ -44,7 +44,6 @@ public class AuthorController {
 		return "redirect:/authors/new";
 	}
 	
-
 	@RequestMapping("/authors/edit")
 	public String edit(Author author, Model model) {
 		model.addAttribute("author",dao.findById(author));
@@ -60,12 +59,6 @@ public class AuthorController {
 		dao.update(author);
 		model.addAttribute("msg", "Autor alterado com sucesso!");
 		return "authors/edit";
-	}
-	
-	@RequestMapping("/authors/destroy")
-	public String destroy(Author author) {
-		dao.delete(author);
-		return "redirect:/authors";
 	}
 	
 }

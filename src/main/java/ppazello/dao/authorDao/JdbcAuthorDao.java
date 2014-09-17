@@ -81,20 +81,6 @@ public class JdbcAuthorDao implements IAuthorDao {
 
 	}
 
-	public void delete(Author author) {
-		String sql = "DELETE FROM authors WHERE id=?";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, author.getId());
-			stmt.execute();
-			stmt.close();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	public Author findById(Author author) {
 		String sql = "SELECT * FROM authors WHERE id=?";
 		try {

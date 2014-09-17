@@ -86,20 +86,6 @@ public class JdbcPublisherDao implements IPublihserDao {
 
 	}
 
-	public void delete(Publisher publisher) {
-		String sql = "DELETE FROM publishers WHERE id=?";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, publisher.getId());
-			stmt.execute();
-			stmt.close();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	public Publisher findById(Publisher publisher) {
 		String sql = "SELECT * FROM publishers WHERE id=?";
 		try {

@@ -62,10 +62,4 @@ public class GenreController {
 		return "genres/edit";
 	}
 	
-	@RequestMapping("/genres/destroy")
-	public String destroy(Genre genre) {
-		dao.delete(genre);
-		return "redirect:/genres";
-	}
-	
 }

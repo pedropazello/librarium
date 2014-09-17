@@ -8,6 +8,5 @@ public interface IAuthorDao {
 	public void create(Author author);
 	public List<Author> read();
 	public void update(Author author);
-	public void delete(Author author);
 	public Author findById(Author author);
 }

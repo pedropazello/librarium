@@ -41,10 +41,11 @@ public class JdbcBookDao implements IBookDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			int i = 1;
 			stmt.setString(i++, book.getName());
-			stmt.setDouble(i++, book.getPrice());
+			stmt.setBigDecimal(i++, book.getPrice());
 			stmt.setString(i++, book.getIsbn());
 			stmt.setString(i++, book.getComment());
-			stmt.setDate(i++, new Date(Calendar.getInstance().getTimeInMillis()));
+			Date date = new Date(book.getLaunchDate().getTimeInMillis());
+			stmt.setDate(i++, date);
 			stmt.setLong(i++, book.getAuthor().getId());
 			stmt.setLong(i++, book.getGenre().getId());
 			stmt.setLong(i++, book.getPublisher().getId());
@@ -78,7 +79,7 @@ public class JdbcBookDao implements IBookDao {
 				Publisher publisher = new Publisher();
 				book.setId(rs.getLong("id"));
 				book.setName(rs.getString("name"));
-				book.setPrice(rs.getDouble("price"));
+				book.setPrice(rs.getBigDecimal("price"));
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
@@ -115,10 +116,11 @@ public class JdbcBookDao implements IBookDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			int i = 1;
 			stmt.setString(i++, book.getName());
-			stmt.setDouble(i++, book.getPrice());
+			stmt.setBigDecimal(i++, book.getPrice());
 			stmt.setString(i++, book.getIsbn());
 			stmt.setString(i++, book.getComment());
-			stmt.setDate(i++, new Date(Calendar.getInstance().getTimeInMillis()));
+			Date date = new Date(book.getLaunchDate().getTimeInMillis());
+			stmt.setDate(i++, date);
 			stmt.setLong(i++, book.getAuthor().getId());
 			stmt.setLong(i++, book.getGenre().getId());
 			stmt.setLong(i++, book.getPublisher().getId());
@@ -130,19 +132,6 @@ public class JdbcBookDao implements IBookDao {
 			e.printStackTrace();
 		}
 		
-	}
-
-	public void delete(Book book) {
-		String sql = "DELETE FROM books WHERE id=?";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setLong(1, book.getId());
-			stmt.execute();
-			stmt.close();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public Book findById(Book book) {
@@ -166,7 +155,7 @@ public class JdbcBookDao implements IBookDao {
 				Publisher publisher = new Publisher();
 				book.setId(rs.getLong("id"));
 				book.setName(rs.getString("name"));
-				book.setPrice(rs.getDouble("price"));
+				book.setPrice(rs.getBigDecimal("price").setScale(2));
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
