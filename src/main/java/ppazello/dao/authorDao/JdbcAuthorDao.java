@@ -38,7 +38,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 	}
@@ -60,7 +60,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return authors;
 	}
@@ -76,7 +76,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 	}
@@ -95,7 +95,7 @@ public class JdbcAuthorDao implements IAuthorDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return author;
 	}

@@ -3,20 +3,22 @@ package ppazello.model;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 public class Book {
 	
-	
+
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message="Campo nome não pode estar vazio")
 	private String name;
 	@NumberFormat
 	private BigDecimal price;
 	private String isbn;
 	private String comment;
+	@NotNull(message="Campo data não pode estar vazio")
 	@DateTimeFormat(pattern="dd/MM/yyyy") 
 	private Calendar launchDate;
 	private Author author;

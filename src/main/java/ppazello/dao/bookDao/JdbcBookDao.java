@@ -53,7 +53,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 	}
@@ -104,7 +104,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return books;
 	}
@@ -129,7 +129,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		
 	}
@@ -178,7 +178,7 @@ public class JdbcBookDao implements IBookDao {
 			rs.close();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return book;
 	}

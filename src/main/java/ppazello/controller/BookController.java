@@ -30,7 +30,7 @@ public class BookController {
 		this.publisherDao = publisherDao;
 	}
 	
-	@RequestMapping("/books")
+	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("books", dao.read()) ;
 		return "books/index";
@@ -49,6 +49,9 @@ public class BookController {
 		
 		if(result.hasFieldErrors()) {
 			model.addAttribute("book", book);
+			model.addAttribute("authors", authorDao.read());
+			model.addAttribute("genres", genreDao.read());
+			model.addAttribute("publishers", publisherDao.read());
 			return "books/new";
 		}
 		dao.create(book);

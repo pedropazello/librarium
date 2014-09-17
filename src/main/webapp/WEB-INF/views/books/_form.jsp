@@ -26,7 +26,8 @@
 		</div>
 		
 		<div class="form-group">
-			<label>Data de lançamento</label>
+			<label>Data de lançamento*</label>
+			<p class="text-primary" >Insira uma data no formato dd/mm/aaaa</p>
 			<input name="launchDate" id="date" class="form-control" 
 			 value="<fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" />" 
 			 placeholder="Data de lançamento" />
@@ -40,7 +41,7 @@
 			<p class="text-danger"><form:errors path="book.comment"/></p>
 		</div>
 		<div class="form-group">
-			<label>Autor</label>
+			<label>Autor*</label>
 			<select name="author.id" class="form-control">
 				<c:if test="${not empty defaultAuthor}">
 		  			<option value="${defaultAuthor.id}" >${defaultAuthor.name}</option>
@@ -52,7 +53,7 @@
 			<p class="text-danger"><form:errors path="book.author"/></p>
 		</div>
 		<div class="form-group">
-			<label>Gênero</label>
+			<label>Gênero*</label>
 			<select name="genre.id" class="form-control">
 				<c:if test="${not empty defaultGenre}">
 		  			<option value="${defaultGenre.id}" >${defaultGenre.name}</option>
@@ -64,7 +65,7 @@
 			<p class="text-danger"><form:errors path="book.genre"/></p>
 		</div>
 		<div class="form-group">
-			<label>Editora</label>
+			<label>Editora*</label>
 			<select name="publisher.id" class="form-control">
 				<c:if test="${not empty defaultPublisher}">
 		  			<option value="${defaultPublisher.id}" >${defaultPublisher.name}</option>
