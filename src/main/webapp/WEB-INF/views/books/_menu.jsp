@@ -5,8 +5,8 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/librarium2/books">Exibir todos os livros</a></li>
-        <li><a href="/librarium2/books/new">Cadastrar um novo livro</a></li>
+        <li><a href="/books">Exibir todos os livros</a></li>
+        <li><a href="/books/new">Cadastrar um novo livro</a></li>
         <jsp:include page="../global/_dropdown.jsp"/>
       </ul>
     </div>
