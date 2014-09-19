@@ -137,8 +137,11 @@ public class JdbcBookDao implements IBookDao {
 	public Book findById(Book book) {
 		String sql = ""
 				+ "SELECT books.*,"
+				+ "authors.id AS authorId,"
 				+ "authors.name AS author,"
+				+ "genres.id AS genreId,"
 				+ "genres.name AS genre,"
+				+ "publishers.id AS publisherId,"
 				+ "publishers.name AS publisher "
 				+ "FROM books "
 				+ "INNER JOIN authors ON books.authorId = authors.id "
@@ -182,5 +185,90 @@ public class JdbcBookDao implements IBookDao {
 		}
 		return book;
 	}
+
+	@Override
+	public List<Book> findByAuthor(Author author) {
+		String Sql = "SELECT * FROM books WHERE authorId=?";
+		List<Book> books = new ArrayList<Book>();
+		try {
+			PreparedStatement stmt = connection.prepareStatement(Sql);
+			stmt.setLong(1, author.getId());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setId(rs.getLong("id"));
+				book.setName(rs.getString("name"));
+				book.setPrice(rs.getBigDecimal("price").setScale(2));
+				book.setIsbn(rs.getString("isbn"));
+				book.setComment(rs.getString("comment"));
+				Calendar date = Calendar.getInstance();
+				date.setTime(rs.getDate("launchDate"));
+				book.setLaunchDate(date);
+				books.add(book);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return books;
+	}
+
+	@Override
+	public List<Book> findByGenre(Genre genre) {
+		String Sql = "SELECT * FROM books WHERE genreId=?";
+		List<Book> books = new ArrayList<Book>();
+		try {
+			PreparedStatement stmt = connection.prepareStatement(Sql);
+			stmt.setLong(1, genre.getId());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setId(rs.getLong("id"));
+				book.setName(rs.getString("name"));
+				book.setPrice(rs.getBigDecimal("price").setScale(2));
+				book.setIsbn(rs.getString("isbn"));
+				book.setComment(rs.getString("comment"));
+				Calendar date = Calendar.getInstance();
+				date.setTime(rs.getDate("launchDate"));
+				book.setLaunchDate(date);
+				books.add(book);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return books;
+	}
+
+	@Override
+	public List<Book> findByPublisher(Publisher publisher) {
+		String Sql = "SELECT * FROM books WHERE publisherId=?";
+		List<Book> books = new ArrayList<Book>();
+		try {
+			PreparedStatement stmt = connection.prepareStatement(Sql);
+			stmt.setLong(1, publisher.getId());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Book book = new Book();
+				book.setId(rs.getLong("id"));
+				book.setName(rs.getString("name"));
+				book.setPrice(rs.getBigDecimal("price").setScale(2));
+				book.setIsbn(rs.getString("isbn"));
+				book.setComment(rs.getString("comment"));
+				Calendar date = Calendar.getInstance();
+				date.setTime(rs.getDate("launchDate"));
+				book.setLaunchDate(date);
+				books.add(book);
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return books;
+	}
+
 
 }

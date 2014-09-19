@@ -8,17 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ppazello.dao.bookDao.JdbcBookDao;
 import ppazello.dao.genreDao.JdbcGenreDao;
 import ppazello.model.Genre;
 
 @Controller
 public class GenreController {
 	
-	private final  JdbcGenreDao dao;
-	
+	private  JdbcGenreDao dao;
+	private  JdbcBookDao bookDao;
 	@Autowired
-	public  GenreController(JdbcGenreDao dao) {
+	public  GenreController(JdbcGenreDao dao, JdbcBookDao bookDao) {
 		this.dao = dao;
+		this.bookDao = bookDao;
 	}
 	
 	@RequestMapping("/genres")
@@ -60,6 +62,13 @@ public class GenreController {
 		dao.update(genre);
 		model.addAttribute("msg", "Genero alterado com sucesso!");
 		return "genres/edit";
+	}
+	
+	@RequestMapping("/genres/show")
+	public String show(Genre genre, Model model) {
+		model.addAttribute("genre", dao.findById(genre));
+		model.addAttribute("books", bookDao.findByGenre(genre) );
+		return "genres/show";
 	}
 	
 }

@@ -8,17 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ppazello.dao.bookDao.JdbcBookDao;
 import ppazello.dao.publisherDao.JdbcPublisherDao;
 import ppazello.model.Publisher;
 
 @Controller
 public class PublisherController {
 	
-	private final  JdbcPublisherDao dao;
-	
+	private JdbcPublisherDao dao;
+	private JdbcBookDao bookDao;
 	@Autowired
-	public  PublisherController(JdbcPublisherDao dao) {
+	public  PublisherController(JdbcPublisherDao dao, JdbcBookDao bookDao) {
 		this.dao = dao;
+		this.bookDao = bookDao;
 	}
 	
 	@RequestMapping("/publishers")
@@ -61,5 +63,13 @@ public class PublisherController {
 		model.addAttribute("msg", "Editora alterada com sucesso!");
 		return "publishers/edit";
 	}
+	
+	@RequestMapping("/publishers/show")
+	public String show(Publisher publisher, Model model) {
+		model.addAttribute("publisher", dao.findById(publisher));
+		model.addAttribute("books", bookDao.findByPublisher(publisher) );
+		return "publishers/show";
+	}
+	
 
 }

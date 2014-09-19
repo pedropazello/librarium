@@ -25,7 +25,7 @@
 				<c:forEach items="${genres}" var="genre" >
 					<tr>
 						<td>${genre.id}</td>
-						<td>${genre.name}</td>
+						<td><a href="genres/show?id=${genre.id}">${genre.name}</a></td>
 						<td><a href="genres/edit?id=${genre.id}">alterar</a></td>
 					</tr>
 				</c:forEach>

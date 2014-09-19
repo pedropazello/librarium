@@ -10,7 +10,7 @@
 <body>
 <div class="container">
 	<jsp:include page="_menu.jsp"/>
-	<div class="page-header"><h1>Editar o autor ${publisher.name}</h1></div>
+	<div class="page-header"><h1>Alterar a editora ${publisher.name}</h1></div>
 	<div class="col-lg-3" >
 		<form action="update" method="post">
 			<jsp:include page="_form.jsp"/>

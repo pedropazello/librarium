@@ -37,14 +37,14 @@
 	<div class="col-lg-4">
 		<div class="form-group">
 			<label>Cometários sobre o livro</label>
-			<textarea name="price" class="form-control" placeholder="Comentários">${book.comment}</textarea>
+			<textarea name="comment" class="form-control" placeholder="Comentários">${book.comment}</textarea>
 			<p class="text-danger"><form:errors path="book.comment"/></p>
 		</div>
 		<div class="form-group">
 			<label>Autor*</label>
 			<select name="author.id" class="form-control">
-				<c:if test="${not empty defaultAuthor}">
-		  			<option value="${defaultAuthor.id}" >${defaultAuthor.name}</option>
+				<c:if test="${not empty book.author}">
+		  			<option value="${book.author.id}" >${book.author.name}</option>
 		  		</c:if>
 		  		<c:forEach items="${authors}" var="author">	
 		  		<option value="${author.id}" >${author.name}</option>
@@ -55,8 +55,8 @@
 		<div class="form-group">
 			<label>Gênero*</label>
 			<select name="genre.id" class="form-control">
-				<c:if test="${not empty defaultGenre}">
-		  			<option value="${defaultGenre.id}" >${defaultGenre.name}</option>
+				<c:if test="${not empty book.genre}">
+		  			<option value="${book.genre.id}" >${book.genre.name}</option>
 		  		</c:if>
 		  		<c:forEach items="${genres}" var="genre">
 		  		<option value="${genre.id}" >${genre.name}</option>
@@ -67,8 +67,8 @@
 		<div class="form-group">
 			<label>Editora*</label>
 			<select name="publisher.id" class="form-control">
-				<c:if test="${not empty defaultPublisher}">
-		  			<option value="${defaultPublisher.id}" >${defaultPublisher.name}</option>
+				<c:if test="${not empty book.publisher}">
+		  			<option value="${book.publisher.id}" >${book.publisher.name}</option>
 		  		</c:if>
 		  		<c:forEach items="${publishers}" var="publisher">
 		  		<option value="${publisher.id}" >${publisher.name}</option>

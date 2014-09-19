@@ -63,11 +63,8 @@ public class BookController {
 	@RequestMapping("/books/edit")
 	public String edit(Book book, Model model) {
 		model.addAttribute("book",dao.findById(book));
-		model.addAttribute("defaultAuthor", authorDao.findById(book.getAuthor()));
 		model.addAttribute("authors", authorDao.read());
-		model.addAttribute("defaultGenre", genreDao.findById(book.getGenre()));
 		model.addAttribute("genres", genreDao.read());
-		model.addAttribute("defaultPublisher", publisherDao.findById(book.getPublisher()));
 		model.addAttribute("publishers", publisherDao.read());
 		return "books/edit";
 	}
@@ -81,6 +78,12 @@ public class BookController {
 		dao.update(book);
 		model.addAttribute("msg", "Livro alterado com sucesso!");
 		return "books/edit";
+	}
+	
+	@RequestMapping("/books/show")
+	public String show(Book book, Model model) {
+		model.addAttribute("book", dao.findById(book));
+		return "books/show";
 	}
 	
 }

@@ -9,16 +9,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ppazello.dao.authorDao.JdbcAuthorDao;
+import ppazello.dao.bookDao.JdbcBookDao;
 import ppazello.model.Author;
 
 @Controller
 public class AuthorController {
 	
-	private final  JdbcAuthorDao dao;
-	
+	private  JdbcAuthorDao dao;
+	private  JdbcBookDao bookDao;
 	@Autowired
-	public  AuthorController(JdbcAuthorDao dao) {
+	public  AuthorController(JdbcAuthorDao dao, JdbcBookDao bookDao) {
 		this.dao = dao;
+		this.bookDao = bookDao;
 	}
 	
 	@RequestMapping("/authors")
@@ -59,6 +61,13 @@ public class AuthorController {
 		dao.update(author);
 		model.addAttribute("msg", "Autor alterado com sucesso!");
 		return "authors/edit";
+	}
+	
+	@RequestMapping("/authors/show")
+	public String show(Author author, Model model) {
+		model.addAttribute("author", dao.findById(author));
+		model.addAttribute("books", bookDao.findByAuthor(author));
+		return "/authors/show";
 	}
 	
 }

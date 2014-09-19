@@ -28,7 +28,7 @@
 				<c:forEach items="${publishers}" var="publisher" >
 					<tr>
 						<td>${publisher.id}</td>
-						<td>${publisher.name}</td>
+						<td><a href="publishers/show?id=${publisher.id}">${publisher.name}</a></td>
 						<td><a href="mailto:${publisher.email}">${publisher.email}</a>
 							<c:if test="${empty publisher.email}">email vazio</c:if>
 						</td>

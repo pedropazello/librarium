@@ -26,7 +26,7 @@
 				<c:forEach items="${authors}" var="author" >
 					<tr>
 						<td>${author.id}</td>
-						<td>${author.name}</td>
+						<td><a href="authors/show?id=${author.id }">${author.name}</a> </td>
 						<td><a href="mailto:${author.email}">${author.email}</a>
 							<c:if test="${empty author.email}">email vazio</c:if>
 						</td>
