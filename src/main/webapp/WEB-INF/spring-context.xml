@@ -21,13 +21,32 @@
   </bean>
   
   <!-- Jdbc datasource -->
-  <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost/librarium2"/>
-    <property name="username" value="root"/>
+  <bean id="mysqlDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+   	<!-- Database access -->
+   	<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    <property name="jdbcUrl" value="jdbc:mysql://localhost/librarium2"/>
+    <property name="user" value="root"/>
     <property name="password" value="root"/>
-    <property name="validationQuery" value="SELECT 1" />
-    <property name="testOnBorrow" value="true" />
+    <!-- pool sizing -->
+	<property name="initialPoolSize" value="3" />
+	<property name="minPoolSize" value="6" />
+	<property name="maxPoolSize" value="25" />
+	<property name="acquireIncrement" value="3" />
+	<property name="maxStatements" value="0" />
+	<!-- retries -->
+	<property name="acquireRetryAttempts" value="30" />
+	<property name="acquireRetryDelay" value="1000" /> <!-- 1s -->
+	<property name="breakAfterAcquireFailure" value="false" />
+	<!-- refreshing connections -->
+	<property name="maxIdleTime" value="180" /> <!-- 3min -->
+	<property name="maxConnectionAge" value="10" /> <!-- 1h -->
+	<!-- timeouts and testing -->
+	<property name="checkoutTimeout" value="5000" /> <!-- 5s -->
+	<property name="idleConnectionTestPeriod" value="60" /> <!-- 60 -->
+	<property name="testConnectionOnCheckout" value="true" />
+	<property name="preferredTestQuery" value="SELECT 1" />
+	<property name="testConnectionOnCheckin" value="true" />
+    
   </bean>
 	
 

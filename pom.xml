@@ -49,19 +49,11 @@
 	
 	
 	<!-- Jdbc Datasource -->
-	
 	<dependency>
-		<groupId>commons-dbcp</groupId>
-		<artifactId>commons-dbcp</artifactId>
-		<version>1.4</version>
+		<groupId>c3p0</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.1.2</version>
 	</dependency>
-	
-	<dependency>
-		<groupId>commons-pool</groupId>
-		<artifactId>commons-pool</artifactId>
-		<version>1.6</version>
-	</dependency>
-	
 	
 	<!-- Hibernate-beanvalidator -->
 	
