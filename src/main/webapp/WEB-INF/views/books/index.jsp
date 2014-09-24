@@ -36,7 +36,10 @@
 						<td>
 							<fmt:formatNumber type="currency" value="${book.price}"/>  
 						</td>
-						<td>${book.isbn}</td>
+						<td>
+							<c:if test="${empty book.isbn}"> Sem ISBN</c:if>
+							${book.isbn}
+						</td>
 						<td>
 							<fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" />
 						</td>

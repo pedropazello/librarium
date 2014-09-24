@@ -50,7 +50,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.setLong(i++, book.getGenre().getId());
 			stmt.setLong(i++, book.getPublisher().getId());
 			stmt.execute();
-			stmt.close();
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -100,8 +100,8 @@ public class JdbcBookDao implements IBookDao {
 				
 				books.add(book);
 			}
-			rs.close();
-			stmt.close();
+			
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -126,7 +126,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.setLong(i++, book.getPublisher().getId());
 			stmt.setLong(i++, book.getId());
 			stmt.execute();
-			stmt.close();
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -177,8 +177,8 @@ public class JdbcBookDao implements IBookDao {
 				publisher.setName(rs.getString("publisher"));
 				book.setPublisher(publisher);
 			}
-			stmt.close();
-			rs.close();
+			
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -206,8 +206,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setLaunchDate(date);
 				books.add(book);
 			}
-			rs.close();
-			stmt.close();
+			
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -234,8 +234,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setLaunchDate(date);
 				books.add(book);
 			}
-			rs.close();
-			stmt.close();
+			
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -262,8 +262,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setLaunchDate(date);
 				books.add(book);
 			}
-			rs.close();
-			stmt.close();
+			
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

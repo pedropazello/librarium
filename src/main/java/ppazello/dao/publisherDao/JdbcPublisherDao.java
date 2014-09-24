@@ -36,7 +36,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 			stmt.setString(3, publisher.getSite());
 			stmt.setString(4, publisher.getPhoneNumber());
 			stmt.execute();
-			stmt.close();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,8 +58,8 @@ public class JdbcPublisherDao implements IPublihserDao {
 				publisher.setPhoneNumber(rs.getString("phoneNumber"));
 				publishers.add(publisher);
 			}
-			rs.close();
-			stmt.close();
+			
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class JdbcPublisherDao implements IPublihserDao {
 			stmt.setString(i++, publisher.getPhoneNumber());
 			stmt.setLong(i++, publisher.getId());
 			stmt.execute();
-			stmt.close();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,8 +98,8 @@ public class JdbcPublisherDao implements IPublihserDao {
 				publisher.setSite(rs.getString("site"));
 				publisher.setPhoneNumber(rs.getString("phoneNumber"));
 			}
-			rs.close();
-			stmt.close();
+			
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

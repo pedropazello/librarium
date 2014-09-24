@@ -33,7 +33,7 @@ public class JdbcGenreDao implements IGenreDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,genre.getName());
 			stmt.execute();
-			stmt.close();
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -52,8 +52,8 @@ public class JdbcGenreDao implements IGenreDao {
 				genre.setName(rs.getString("name"));
 				genres.add(genre);
 			}
-			stmt.close();
-			rs.close();
+			
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -68,7 +68,7 @@ public class JdbcGenreDao implements IGenreDao {
 			stmt.setString(1, genre.getName());
 			stmt.setLong(2, genre.getId());
 			stmt.execute();
-			stmt.close();
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -85,8 +85,8 @@ public class JdbcGenreDao implements IGenreDao {
 			while (rs.next()) {
 				genre.setName(rs.getString("name"));
 			}
-			rs.close();
-			stmt.close();
+			
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
