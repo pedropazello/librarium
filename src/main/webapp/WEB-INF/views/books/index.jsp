@@ -21,7 +21,7 @@
 					<th>Nome</th>
 					<th>Preço</th>
 					<th>ISBN</th>
-					<th>Data de lançamento</th>
+					<th>Ano de lançamento</th>
 					<th>Autor</th>
 					<th>Gênero</th>
 					<th>Editora</th>
@@ -41,7 +41,7 @@
 							${book.isbn}
 						</td>
 						<td>
-							<fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" />
+							<fmt:formatDate value="${book.launchYear.time}" pattern="yyyy" />
 						</td>
 						<td>${book.author.name}</td>
 						<td>${book.genre.name}</td>

@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Author {
 	private Long id;
 	
-	@NotEmpty
+	@NotEmpty(message="Campo nome não pode estar vazio")
 	private String name;
 	
 	@Email

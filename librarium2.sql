@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS books(
 	price FLOAT(30),
 	isbn VARCHAR(50),
 	comment VARCHAR(1000),
-	launchDate DATE,
+	launchYear DATE,
 	authorId BIGINT NOT NULL,
 	genreId BIGINT NOT NULL,
 	publisherId BIGINT NOT NULL,

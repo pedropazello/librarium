@@ -19,7 +19,7 @@
 				<p><strong>Nome:</strong> ${book.name}</p>
 				<p><strong>Preço:</strong> <fmt:formatNumber type="currency" value="${book.price}"/></p>
 				<p><strong>ISBN:</strong> ${book.isbn}</p>
-				<p><strong>Data de lançamento:</strong> <fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" /> </p>
+				<p><strong>Ano de lançamento:</strong> <fmt:formatDate value="${book.launchYear.time}" pattern="yyyy" /> </p>
 				<p><strong>Autor:</strong> <a href="/authors/show?id=${book.author.id}">${book.author.name}</a> </p>
 				<p><strong>Gênero:</strong> <a href="/genres/show?id=${book.genre.id}">${book.genre.name}</a> </p>
 				<p><strong>Editora:</strong> <a href="/publishers/show?id=${book.publisher.id}">${book.publisher.name }</a> </p>

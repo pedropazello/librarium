@@ -19,8 +19,8 @@ public class Book {
 	private String isbn;
 	private String comment;
 	@NotNull(message="Campo data não pode estar vazio")
-	@DateTimeFormat(pattern="dd/MM/yyyy") 
-	private Calendar launchDate;
+	@DateTimeFormat(pattern="yyyy") 
+	private Calendar launchYear;
 	private Author author;
 	private Genre genre;
 	private Publisher publisher;
@@ -54,11 +54,11 @@ public class Book {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Calendar getLaunchDate() {
-		return launchDate;
+	public Calendar getLaunchYear() {
+		return launchYear;
 	}
-	public void setLaunchDate(Calendar launchDate) {
-		this.launchDate = launchDate;
+	public void setLaunchYear(Calendar launchDate) {
+		this.launchYear = launchDate;
 	}
 	public Author getAuthor() {
 		return author;

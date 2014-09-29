@@ -35,7 +35,7 @@ public class JdbcBookDao implements IBookDao {
 	
 	public void create(Book book) {
 		String sql = "INSERT INTO books "
-				+ "(name,price,isbn,comment,launchDate,authorId,genreId,publisherId) "
+				+ "(name,price,isbn,comment,launchYear,authorId,genreId,publisherId) "
 				+ "VALUES (?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.setBigDecimal(i++, book.getPrice());
 			stmt.setString(i++, book.getIsbn());
 			stmt.setString(i++, book.getComment());
-			Date date = new Date(book.getLaunchDate().getTimeInMillis());
+			Date date = new Date(book.getLaunchYear().getTimeInMillis());
 			stmt.setDate(i++, date);
 			stmt.setLong(i++, book.getAuthor().getId());
 			stmt.setLong(i++, book.getGenre().getId());
@@ -83,8 +83,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
-				date.setTime(rs.getDate("launchDate"));
-				book.setLaunchDate(date);
+				date.setTime(rs.getDate("launchYear"));
+				book.setLaunchYear(date);
 				
 				author.setId(rs.getLong("authorId"));
 				author.setName(rs.getString("author"));
@@ -110,7 +110,7 @@ public class JdbcBookDao implements IBookDao {
 	}
 
 	public void update(Book book) {
-		String sql = "UPDATE books SET name=?, price=?, isbn=?, comment=?, launchDate=?, "
+		String sql = "UPDATE books SET name=?, price=?, isbn=?, comment=?, launchYear=?, "
 				+ "authorId=?, genreId=?, publisherId=?  WHERE id=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -119,7 +119,7 @@ public class JdbcBookDao implements IBookDao {
 			stmt.setBigDecimal(i++, book.getPrice());
 			stmt.setString(i++, book.getIsbn());
 			stmt.setString(i++, book.getComment());
-			Date date = new Date(book.getLaunchDate().getTimeInMillis());
+			Date date = new Date(book.getLaunchYear().getTimeInMillis());
 			stmt.setDate(i++, date);
 			stmt.setLong(i++, book.getAuthor().getId());
 			stmt.setLong(i++, book.getGenre().getId());
@@ -162,8 +162,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
-				date.setTime(rs.getDate("launchDate"));
-				book.setLaunchDate(date);
+				date.setTime(rs.getDate("launchYear"));
+				book.setLaunchYear(date);
 				
 				author.setId(rs.getLong("authorId"));
 				author.setName(rs.getString("author"));
@@ -202,8 +202,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
-				date.setTime(rs.getDate("launchDate"));
-				book.setLaunchDate(date);
+				date.setTime(rs.getDate("launchYear"));
+				book.setLaunchYear(date);
 				books.add(book);
 			}
 			
@@ -230,8 +230,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
-				date.setTime(rs.getDate("launchDate"));
-				book.setLaunchDate(date);
+				date.setTime(rs.getDate("launchYear"));
+				book.setLaunchYear(date);
 				books.add(book);
 			}
 			
@@ -258,8 +258,8 @@ public class JdbcBookDao implements IBookDao {
 				book.setIsbn(rs.getString("isbn"));
 				book.setComment(rs.getString("comment"));
 				Calendar date = Calendar.getInstance();
-				date.setTime(rs.getDate("launchDate"));
-				book.setLaunchDate(date);
+				date.setTime(rs.getDate("launchYear"));
+				book.setLaunchYear(date);
 				books.add(book);
 			}
 			

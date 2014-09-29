@@ -26,12 +26,12 @@
 		</div>
 		
 		<div class="form-group">
-			<label>Data de lançamento*</label>
-			<p class="text-primary" >Insira uma data no formato dd/mm/aaaa</p>
-			<input name="launchDate" id="date" class="form-control" 
-			 value="<fmt:formatDate value="${book.launchDate.time}" pattern="dd/MM/yyyy" />" 
-			 placeholder="Data de lançamento" />
-			<p class="text-danger"><form:errors path="book.launchDate"/></p>
+			<label>Ano de lançamento*</label>
+			<p class="text-primary" >Insira no formato aaaa</p>
+			<input name="launchYear" id="date" class="form-control" 
+			 value="<fmt:formatDate value="${book.launchYear.time}" pattern="yyyy" />" 
+			 placeholder="Ano de lançamento" />
+			<p class="text-danger"><form:errors path="book.launchYear"/></p>
 		</div>
 	</div>
 	<div class="col-lg-4">

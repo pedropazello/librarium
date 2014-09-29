@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.URL;
 
 public class Publisher {
 	private Long id;
-	@NotEmpty
+	@NotEmpty(message="Campo nome não pode estar vazio")
 	private String name;
 	@Email
 	private String email;
