@@ -5,7 +5,7 @@ Librarium é um sistema para cadastro de gêneros, autores, editoras e livros de
 
 Tecnologias utilizadas:
 
-* Java como linguagem de programação.
+* Java.
 * JDBC para realizar todas as consultas e inserção de dados em banco de dados.
 * MySQL como banco de dados.
 * Maven para gerenciar todas as bibliotecas utilizadas.
