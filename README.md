@@ -11,4 +11,4 @@ Tecnologias utilizadas:
 * Maven para gerenciar todas as bibliotecas utilizadas.
 * Spring MVC para realizar todas as ações entre o as views e as classes modelo.
 * Spring DataSource com c3p0 para realizar o pool de conexões.
-* Bootstrap para deixar o projeto mais bonito.
+* Bootstrap.
